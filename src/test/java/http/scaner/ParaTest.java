@@ -3,11 +3,10 @@ package http.scaner;
 import http.annotation.PathVariable;
 import http.annotation.RESTFulMapping;
 import http.exception.ParamTypeException;
-import http.route.Dispatcher;
+import http.route.DefaultDispatcher;
 import io.netty.handler.codec.http.QueryStringDecoder;
 import org.junit.Test;
 
-import java.lang.reflect.Parameter;
 import java.util.*;
 
 public class ParaTest {
@@ -22,7 +21,7 @@ public class ParaTest {
         QueryStringDecoder decoder = new QueryStringDecoder(url);
         Map<String, List<String>> pathVars = new HashMap<>();
         pathVars.put("name",new ArrayList<>(Collections.singletonList("zhangyu")));
-        Object[] paramArr = new Dispatcher().parseParam(decoder,ParaTest.class.getMethod("testMethod", String.class),null,null,pathVars);
+        Object[] paramArr = new DefaultDispatcher().parseParam(decoder, ParaTest.class.getMethod("testMethod", String.class), null, null, pathVars);
         for(Object obj:paramArr) {
             System.out.println(obj);
         }

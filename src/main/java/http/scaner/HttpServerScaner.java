@@ -1,17 +1,11 @@
 package http.scaner;
 
 
-import http.annotation.RESTFulController;
-import http.annotation.RESTFulMapping;
-import http.entity.MethodEntity;
 import http.filter.Filter;
 
 import java.io.File;
-import java.lang.reflect.Method;
 import java.net.URL;
 import java.util.List;
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
 
 public class HttpServerScaner {
     public List<Filter> filters;

@@ -1,7 +1,6 @@
 package http.container;
 
 import http.entity.MethodEntity;
-import http.filter.Filter;
 
 import java.util.HashMap;
 import java.util.HashSet;
@@ -13,6 +12,8 @@ public class Container {
     static public Map<String, MethodEntity> methods = new HashMap<>();
     static public Map<Class,Object> services = new HashMap<>();
     private static Set<Object> beans = null;
+
+
     static public Set<Object> getBeanSet() {
         if(beans != null) return beans;
         beans = new HashSet<>(services.values());

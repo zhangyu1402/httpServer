@@ -29,7 +29,7 @@ public class HttpHandler extends SimpleChannelInboundHandler<FullHttpRequest> {
         DefaultFullHttpResponse response = new DefaultFullHttpResponse(HttpVersion.HTTP_1_1,
                 HttpResponseStatus.OK);
         //default header
-        response = router.Route(msg,response);
+        response = router.route(msg, response);
         buildHeader(response);
         ctx.write(response);
     }
